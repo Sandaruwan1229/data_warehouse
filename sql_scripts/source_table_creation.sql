@@ -9,6 +9,8 @@ CREATE TABLE Vendor (
     updated_at DATETIME2
 );
 
+select * from Vendor;
+
 CREATE TABLE Product (
     product_id INT PRIMARY KEY,
     name VARCHAR(200),
@@ -18,6 +20,8 @@ CREATE TABLE Product (
     updated_at DATETIME2
 );
 
+select * from Product;
+
 CREATE TABLE Employee (
     employee_id INT PRIMARY KEY,
     name VARCHAR(200),
@@ -25,11 +29,15 @@ CREATE TABLE Employee (
     email VARCHAR(200)
 );
 
+select * from Employee;
+
 CREATE TABLE Location (
     location_id INT PRIMARY KEY,
     name VARCHAR(200),
     address VARCHAR(400)
 );
+
+select * from Location;
 
 CREATE TABLE ContractHeader (
     contract_header_id INT PRIMARY KEY,
@@ -41,6 +49,8 @@ CREATE TABLE ContractHeader (
     status VARCHAR(20)
 );
 
+select * from ContractHeader;
+
 CREATE TABLE Contract (
     contract_id INT PRIMARY KEY,
     contract_header_id INT REFERENCES ContractHeader(contract_header_id),
@@ -48,6 +58,8 @@ CREATE TABLE Contract (
     agreed_price_amount DECIMAL(18,4),
     price_uom VARCHAR(20)
 );
+
+select * from Contract;
 
 CREATE TABLE OrderHeader (
     order_header_id INT PRIMARY KEY,
@@ -59,6 +71,8 @@ CREATE TABLE OrderHeader (
     location_id INT REFERENCES Location(location_id),
     status VARCHAR(20)
 );
+
+select * from OrderHeader;
 
 CREATE TABLE OrderDetails(
     order_id INT PRIMARY KEY,
@@ -72,6 +86,8 @@ CREATE TABLE OrderDetails(
     created_date DATETIME2
 );
 
+select * from OrderDetails;
+
 CREATE TABLE ReceiptHeader (
     receipt_header_id INT PRIMARY KEY,
     order_header_id INT REFERENCES OrderHeader(order_header_id),
@@ -81,6 +97,7 @@ CREATE TABLE ReceiptHeader (
     status VARCHAR(20)
 );
 
+select * from  ReceiptHeader;
 
 CREATE TABLE Receipt (
     receipt_id INT PRIMARY KEY,
@@ -92,3 +109,5 @@ CREATE TABLE Receipt (
     inspection_result VARCHAR(50),
     delivery_date DATE
 );
+
+select * from Receipt;

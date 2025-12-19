@@ -1,3 +1,14 @@
+CREATE TABLE DimDate (
+    date_id INT PRIMARY KEY, 
+    full_date DATE,
+    year INT,
+    quarter INT,
+    month INT,
+    day INT,
+    weekday INT,
+    is_weekend BIT
+);
+
 CREATE TABLE DimVendor (
     vendor_sk INT IDENTITY(1,1) PRIMARY KEY, 
     vendor_alt_id INT,                       

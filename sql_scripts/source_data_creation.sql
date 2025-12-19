@@ -22,6 +22,9 @@ INSERT INTO ContractHeader (contract_header_id, vendor_id, start_date, end_date,
 INSERT INTO Contract (contract_id, contract_header_id, product_id, agreed_price_amount, price_uom) VALUES
 (2001, 1001, 101, 150000.00, 'Unit'); 
 
+INSERT INTO Contract (contract_id, contract_header_id, product_id, agreed_price_amount, price_uom) VALUES
+(2002, 1001, 102, 50000.00, 'Box'); 
+
 -- 3. Create Orders 
 -- Order A: Buying Laptops within contract (Good)
 INSERT INTO OrderHeader (order_header_id, vendor_id, requested_by_emp_id, created_date, required_by_date, currency, location_id, status) VALUES
