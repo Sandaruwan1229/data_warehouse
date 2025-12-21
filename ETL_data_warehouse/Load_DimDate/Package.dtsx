@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Package"
   DTS:PackageType="5"
-  DTS:VersionBuild="38"
-  DTS:VersionGUID="{443EBE38-38CC-4421-A3AB-D3A143996E6B}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{44CA4EBA-3C4F-45ED-975B-CDB67CBE2CAF}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -286,6 +286,185 @@ JOIN ContractHeader ch ON c.contract_header_id = ch.contract_header_id</property
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Load Dimensions\DFT DimContract\DimContract"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DimContract"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimContract]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Dimensions\DFT DimContract\DimContract.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.target]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.target]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].Columns[start_date]"
+                          cachedDataType="dbDate"
+                          cachedName="start_date"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
+                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[start_date]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].Columns[end_date]"
+                          cachedDataType="dbDate"
+                          cachedName="end_date"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
+                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[end_date]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].Columns[currency]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="10"
+                          cachedName="currency"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[currency]"
+                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[currency]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].Columns[status]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="20"
+                          cachedName="status"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[status]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].Columns[agreed_price_amount]"
+                          cachedDataType="numeric"
+                          cachedName="agreed_price_amount"
+                          cachedPrecision="18"
+                          cachedScale="4"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[agreed_price_amount]"
+                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[agreed_price_amount]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].Columns[contract_id]"
+                          cachedDataType="i4"
+                          cachedName="contract_id"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[contract_alt_id]"
+                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[contract_id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
+                          dataType="dbDate"
+                          name="start_date" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
+                          dataType="dbDate"
+                          name="end_date" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[currency]"
+                          codePage="1252"
+                          dataType="str"
+                          length="10"
+                          name="currency" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[status]"
+                          codePage="1252"
+                          dataType="str"
+                          length="20"
+                          name="status" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[agreed_price_amount]"
+                          dataType="numeric"
+                          name="agreed_price_amount"
+                          precision="18"
+                          scale="4" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[contract_sk]"
+                          dataType="i4"
+                          name="contract_sk" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input].ExternalColumns[contract_alt_id]"
+                          dataType="i4"
+                          name="contract_alt_id" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Dimensions\DFT DimContract\DimContract.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Dimensions\DFT DimContract\DimContract.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Dimensions\DFT DimContract\DimContract.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Dimensions\DFT DimContract\DimContract.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Load Dimensions\DFT DimContract\Lookup"
                   componentClassID="Microsoft.Lookup"
                   contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -426,190 +605,11 @@ where [refTable].[contract_alt_id] = ?</property>
                     </output>
                   </outputs>
                 </component>
-                <component
-                  refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="OLE DB Destination"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[DimContract]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.target]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.target]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[start_date]"
-                          cachedDataType="dbDate"
-                          cachedName="start_date"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
-                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[start_date]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[end_date]"
-                          cachedDataType="dbDate"
-                          cachedName="end_date"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
-                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[end_date]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[currency]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="10"
-                          cachedName="currency"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[currency]"
-                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[currency]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[status]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="20"
-                          cachedName="status"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[status]"
-                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[status]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[agreed_price_amount]"
-                          cachedDataType="numeric"
-                          cachedName="agreed_price_amount"
-                          cachedPrecision="18"
-                          cachedScale="4"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[agreed_price_amount]"
-                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[agreed_price_amount]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[contract_id]"
-                          cachedDataType="i4"
-                          cachedName="contract_id"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contract_alt_id]"
-                          lineageId="Package\Load Dimensions\DFT DimContract\Contract sources.Outputs[OLE DB Source Output].Columns[contract_id]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
-                          dataType="dbDate"
-                          name="start_date" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
-                          dataType="dbDate"
-                          name="end_date" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[currency]"
-                          codePage="1252"
-                          dataType="str"
-                          length="10"
-                          name="currency" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[status]"
-                          codePage="1252"
-                          dataType="str"
-                          length="20"
-                          name="status" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[agreed_price_amount]"
-                          dataType="numeric"
-                          name="agreed_price_amount"
-                          precision="18"
-                          scale="4" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contract_sk]"
-                          dataType="i4"
-                          name="contract_sk" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[contract_alt_id]"
-                          dataType="i4"
-                          name="contract_alt_id" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
               </components>
               <paths>
                 <path
                   refId="Package\Load Dimensions\DFT DimContract.Paths[Lookup No Match Output]"
-                  endId="Package\Load Dimensions\DFT DimContract\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  endId="Package\Load Dimensions\DFT DimContract\DimContract.Inputs[OLE DB Destination Input]"
                   name="Lookup No Match Output"
                   startId="Package\Load Dimensions\DFT DimContract\Lookup.Outputs[Lookup No Match Output]" />
                 <path
@@ -2482,6 +2482,384 @@ where [refTable].[product_alt_id] = ?</property>
                   </outputs>
                 </component>
                 <component
+                  refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DimVendor new records"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimVendor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.target]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.target]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].Columns[name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="name"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[name]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].Columns[legal_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="legal_name"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[legal_name]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[legal_name]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].Columns[country]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="80"
+                          cachedName="country"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[country]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].Columns[effective_from]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="effective_from"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[effective_from]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column 1.Outputs[Derived Column Output].Columns[effective_from]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].Columns[effective_to]"
+                          cachedDataType="date"
+                          cachedName="effective_to"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[effective_to]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column 1.Outputs[Derived Column Output].Columns[effective_to]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].Columns[is_current]"
+                          cachedDataType="i4"
+                          cachedName="is_current"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column 1.Outputs[Derived Column Output].Columns[is_current]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].Columns[vendor_id]"
+                          cachedDataType="i4"
+                          cachedName="vendor_id"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[vendor_alt_id]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[vendor_id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[vendor_sk]"
+                          dataType="i4"
+                          name="vendor_sk" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[legal_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="legal_name" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="80"
+                          name="country" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[effective_from]"
+                          dataType="dbDate"
+                          name="effective_from" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[effective_to]"
+                          dataType="dbDate"
+                          name="effective_to" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                          dataType="bool"
+                          name="is_current" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input].ExternalColumns[vendor_alt_id]"
+                          dataType="i4"
+                          name="vendor_alt_id" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
+                  refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records"
+                  componentClassID="Microsoft.OLEDBDestination"
+                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+                  description="OLE DB Destination"
+                  name="DimVendor updated records"
+                  usesDispositions="true"
+                  version="4">
+                  <properties>
+                    <property
+                      dataType="System.Int32"
+                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                      name="CommandTimeout">0</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the name of the database object used to open a rowset."
+                      name="OpenRowset">[dbo].[DimVendor]</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies the variable that contains the name of the database object used to open a rowset."
+                      name="OpenRowsetVariable"></property>
+                    <property
+                      dataType="System.String"
+                      description="The SQL command to be executed."
+                      name="SqlCommand"
+                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the column code page to use when code page information is unavailable from the data source."
+                      name="DefaultCodePage">1252</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Forces the use of the DefaultCodePage property value when describing character data."
+                      name="AlwaysUseDefaultCodePage">false</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the mode used to access the database."
+                      name="AccessMode"
+                      typeConverter="AccessMode">3</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepIdentity">false</property>
+                    <property
+                      dataType="System.Boolean"
+                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                      name="FastLoadKeepNulls">false</property>
+                    <property
+                      dataType="System.String"
+                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                      name="FastLoadMaxInsertCommitSize">2147483647</property>
+                  </properties>
+                  <connections>
+                    <connection
+                      refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Connections[OleDbConnection]"
+                      connectionManagerID="Package.ConnectionManagers[localhost.target]"
+                      connectionManagerRefId="Package.ConnectionManagers[localhost.target]"
+                      description="The OLE DB runtime connection used to access the database."
+                      name="OleDbConnection" />
+                  </connections>
+                  <inputs>
+                    <input
+                      refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input]"
+                      errorOrTruncationOperation="Insert"
+                      errorRowDisposition="FailComponent"
+                      hasSideEffects="true"
+                      name="OLE DB Destination Input">
+                      <inputColumns>
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].Columns[name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="name"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[name]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].Columns[legal_name]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="200"
+                          cachedName="legal_name"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[legal_name]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[legal_name]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].Columns[country]"
+                          cachedCodepage="1252"
+                          cachedDataType="str"
+                          cachedLength="80"
+                          cachedName="country"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[country]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].Columns[effective_from]"
+                          cachedDataType="dbTimeStamp"
+                          cachedName="effective_from"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[effective_from]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column.Outputs[Derived Column Output].Columns[effective_from]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].Columns[effective_to]"
+                          cachedDataType="date"
+                          cachedName="effective_to"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[effective_to]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column.Outputs[Derived Column Output].Columns[effective_to]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].Columns[is_current]"
+                          cachedDataType="i4"
+                          cachedName="is_current"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column.Outputs[Derived Column Output].Columns[is_current]" />
+                        <inputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].Columns[vendor_id]"
+                          cachedDataType="i4"
+                          cachedName="vendor_id"
+                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[vendor_alt_id]"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[vendor_id]" />
+                      </inputColumns>
+                      <externalMetadataColumns
+                        isUsed="True">
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[vendor_sk]"
+                          dataType="i4"
+                          name="vendor_sk" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="name" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[legal_name]"
+                          codePage="1252"
+                          dataType="str"
+                          length="200"
+                          name="legal_name" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[country]"
+                          codePage="1252"
+                          dataType="str"
+                          length="80"
+                          name="country" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[effective_from]"
+                          dataType="dbDate"
+                          name="effective_from" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[effective_to]"
+                          dataType="dbDate"
+                          name="effective_to" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                          dataType="bool"
+                          name="is_current" />
+                        <externalMetadataColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input].ExternalColumns[vendor_alt_id]"
+                          dataType="i4"
+                          name="vendor_alt_id" />
+                      </externalMetadataColumns>
+                    </input>
+                  </inputs>
+                  <outputs>
+                    <output
+                      refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Outputs[OLE DB Destination Error Output]"
+                      exclusionGroup="1"
+                      isErrorOut="true"
+                      name="OLE DB Destination Error Output"
+                      synchronousInputId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input]">
+                      <outputColumns>
+                        <outputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          dataType="i4"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                          name="ErrorCode"
+                          specialFlags="1" />
+                        <outputColumn
+                          refId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          dataType="i4"
+                          lineageId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                          name="ErrorColumn"
+                          specialFlags="2" />
+                      </outputColumns>
+                      <externalMetadataColumns />
+                    </output>
+                  </outputs>
+                </component>
+                <component
                   refId="Package\Load Dimensions\DFT DimVendor\Lookup"
                   componentClassID="Microsoft.Lookup"
                   contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
@@ -2790,384 +3168,6 @@ WHERE  [vendor_alt_id] = ?
                   </outputs>
                 </component>
                 <component
-                  refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="OLE DB Destination"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[DimVendor]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.target]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.target]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[name]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="200"
-                          cachedName="name"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[name]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[legal_name]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="200"
-                          cachedName="legal_name"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[legal_name]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[legal_name]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[country]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="80"
-                          cachedName="country"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[country]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[effective_from]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="effective_from"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[effective_from]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column.Outputs[Derived Column Output].Columns[effective_from]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[effective_to]"
-                          cachedDataType="date"
-                          cachedName="effective_to"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[effective_to]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column.Outputs[Derived Column Output].Columns[effective_to]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[is_current]"
-                          cachedDataType="i4"
-                          cachedName="is_current"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column.Outputs[Derived Column Output].Columns[is_current]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[vendor_id]"
-                          cachedDataType="i4"
-                          cachedName="vendor_id"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendor_alt_id]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[vendor_id]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendor_sk]"
-                          dataType="i4"
-                          name="vendor_sk" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          name="name" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[legal_name]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          name="legal_name" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country]"
-                          codePage="1252"
-                          dataType="str"
-                          length="80"
-                          name="country" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[effective_from]"
-                          dataType="dbDate"
-                          name="effective_from" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[effective_to]"
-                          dataType="dbDate"
-                          name="effective_to" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
-                          dataType="bool"
-                          name="is_current" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[vendor_alt_id]"
-                          dataType="i4"
-                          name="vendor_alt_id" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
-                  refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1"
-                  componentClassID="Microsoft.OLEDBDestination"
-                  contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
-                  description="OLE DB Destination"
-                  name="OLE DB Destination 1"
-                  usesDispositions="true"
-                  version="4">
-                  <properties>
-                    <property
-                      dataType="System.Int32"
-                      description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                      name="CommandTimeout">0</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the name of the database object used to open a rowset."
-                      name="OpenRowset">[dbo].[DimVendor]</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies the variable that contains the name of the database object used to open a rowset."
-                      name="OpenRowsetVariable"></property>
-                    <property
-                      dataType="System.String"
-                      description="The SQL command to be executed."
-                      name="SqlCommand"
-                      UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=17.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the column code page to use when code page information is unavailable from the data source."
-                      name="DefaultCodePage">1252</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Forces the use of the DefaultCodePage property value when describing character data."
-                      name="AlwaysUseDefaultCodePage">false</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies the mode used to access the database."
-                      name="AccessMode"
-                      typeConverter="AccessMode">3</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepIdentity">false</property>
-                    <property
-                      dataType="System.Boolean"
-                      description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
-                      name="FastLoadKeepNulls">false</property>
-                    <property
-                      dataType="System.String"
-                      description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
-                      name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
-                    <property
-                      dataType="System.Int32"
-                      description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
-                      name="FastLoadMaxInsertCommitSize">2147483647</property>
-                  </properties>
-                  <connections>
-                    <connection
-                      refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Connections[OleDbConnection]"
-                      connectionManagerID="Package.ConnectionManagers[localhost.target]"
-                      connectionManagerRefId="Package.ConnectionManagers[localhost.target]"
-                      description="The OLE DB runtime connection used to access the database."
-                      name="OleDbConnection" />
-                  </connections>
-                  <inputs>
-                    <input
-                      refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
-                      errorOrTruncationOperation="Insert"
-                      errorRowDisposition="FailComponent"
-                      hasSideEffects="true"
-                      name="OLE DB Destination Input">
-                      <inputColumns>
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[name]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="200"
-                          cachedName="name"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[name]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[legal_name]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="200"
-                          cachedName="legal_name"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[legal_name]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[legal_name]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[country]"
-                          cachedCodepage="1252"
-                          cachedDataType="str"
-                          cachedLength="80"
-                          cachedName="country"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[country]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[country]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[effective_from]"
-                          cachedDataType="dbTimeStamp"
-                          cachedName="effective_from"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[effective_from]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column 1.Outputs[Derived Column Output].Columns[effective_from]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[effective_to]"
-                          cachedDataType="date"
-                          cachedName="effective_to"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[effective_to]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column 1.Outputs[Derived Column Output].Columns[effective_to]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[is_current]"
-                          cachedDataType="i4"
-                          cachedName="is_current"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Derived Column 1.Outputs[Derived Column Output].Columns[is_current]" />
-                        <inputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].Columns[vendor_id]"
-                          cachedDataType="i4"
-                          cachedName="vendor_id"
-                          externalMetadataColumnId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[vendor_alt_id]"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\Vendor.Outputs[OLE DB Source Output].Columns[vendor_id]" />
-                      </inputColumns>
-                      <externalMetadataColumns
-                        isUsed="True">
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[vendor_sk]"
-                          dataType="i4"
-                          name="vendor_sk" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[name]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          name="name" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[legal_name]"
-                          codePage="1252"
-                          dataType="str"
-                          length="200"
-                          name="legal_name" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[country]"
-                          codePage="1252"
-                          dataType="str"
-                          length="80"
-                          name="country" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[effective_from]"
-                          dataType="dbDate"
-                          name="effective_from" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[effective_to]"
-                          dataType="dbDate"
-                          name="effective_to" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
-                          dataType="bool"
-                          name="is_current" />
-                        <externalMetadataColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input].ExternalColumns[vendor_alt_id]"
-                          dataType="i4"
-                          name="vendor_alt_id" />
-                      </externalMetadataColumns>
-                    </input>
-                  </inputs>
-                  <outputs>
-                    <output
-                      refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Outputs[OLE DB Destination Error Output]"
-                      exclusionGroup="1"
-                      isErrorOut="true"
-                      name="OLE DB Destination Error Output"
-                      synchronousInputId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input]">
-                      <outputColumns>
-                        <outputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          dataType="i4"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
-                          name="ErrorCode"
-                          specialFlags="1" />
-                        <outputColumn
-                          refId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          dataType="i4"
-                          lineageId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
-                          name="ErrorColumn"
-                          specialFlags="2" />
-                      </outputColumns>
-                      <externalMetadataColumns />
-                    </output>
-                  </outputs>
-                </component>
-                <component
                   refId="Package\Load Dimensions\DFT DimVendor\Vendor"
                   componentClassID="Microsoft.OLEDBSource"
                   contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
@@ -3444,12 +3444,12 @@ WHERE  [vendor_alt_id] = ?
                   startId="Package\Load Dimensions\DFT DimVendor\Conditional Split.Outputs[CHANGED]" />
                 <path
                   refId="Package\Load Dimensions\DFT DimVendor.Paths[Derived Column Output]"
-                  endId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  endId="Package\Load Dimensions\DFT DimVendor\DimVendor updated records.Inputs[OLE DB Destination Input]"
                   name="Derived Column Output"
                   startId="Package\Load Dimensions\DFT DimVendor\Derived Column.Outputs[Derived Column Output]" />
                 <path
                   refId="Package\Load Dimensions\DFT DimVendor.Paths[Derived Column Output1]"
-                  endId="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1.Inputs[OLE DB Destination Input]"
+                  endId="Package\Load Dimensions\DFT DimVendor\DimVendor new records.Inputs[OLE DB Destination Input]"
                   name="Derived Column Output"
                   startId="Package\Load Dimensions\DFT DimVendor\Derived Column 1.Outputs[Derived Column Output]" />
                 <path
@@ -6125,13 +6125,9 @@ where [refTable].[vendor_alt_id] = ?</property>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="168,42"
-          Id="Package\Populate DimDate"
-          TopLeft="2.5,64.5" />
-        <NodeLayout
-          Size="161,42"
-          Id="Package\Load Dimensions\DFT DimProduct"
-          TopLeft="16,12" />
+          Size="164,42"
+          Id="Package\Load Dimensions\DFT DimContract"
+          TopLeft="20.5,188.5" />
         <NodeLayout
           Size="172,42"
           Id="Package\Load Dimensions\DFT DimEmployee"
@@ -6141,9 +6137,9 @@ where [refTable].[vendor_alt_id] = ?</property>
           Id="Package\Load Dimensions\DFT DimLocation"
           TopLeft="19.5,128.875" />
         <NodeLayout
-          Size="164,42"
-          Id="Package\Load Dimensions\DFT DimContract"
-          TopLeft="20.5,188.5" />
+          Size="161,42"
+          Id="Package\Load Dimensions\DFT DimProduct"
+          TopLeft="16,12" />
         <NodeLayout
           Size="158,42"
           Id="Package\Load Dimensions\DFT DimVendor"
@@ -6155,6 +6151,25 @@ where [refTable].[vendor_alt_id] = ?</property>
           Size="264,383"
           Id="Package\Load Dimensions"
           TopLeft="219.5,12.5" />
+        <NodeLayout
+          Size="199,42"
+          Id="Package\Load Facts\DFT FactPurchaseOrder"
+          TopLeft="17.5,18.5" />
+        <NodeLayout
+          Size="190,42"
+          Id="Package\Load Facts\DFT FactReceiptOrder"
+          TopLeft="24.5,74.5" />
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="219,172"
+          Size="219,215"
+          Id="Package\Load Facts"
+          TopLeft="550.5,15.5" />
+        <NodeLayout
+          Size="168,42"
+          Id="Package\Populate DimDate"
+          TopLeft="2.5,64.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="170.5,85.5">
@@ -6189,21 +6204,6 @@ where [refTable].[vendor_alt_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="199,42"
-          Id="Package\Load Facts\DFT FactPurchaseOrder"
-          TopLeft="17.5,18.5" />
-        <NodeLayout
-          Size="190,42"
-          Id="Package\Load Facts\DFT FactReceiptOrder"
-          TopLeft="24.5,74.5" />
-        <ContainerLayout
-          HeaderHeight="43"
-          IsExpanded="True"
-          PanelSize="219,172"
-          Size="219,214"
-          Id="Package\Load Facts"
-          TopLeft="550.5,15.5" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
           TopLeft="483.5,204">
@@ -6242,36 +6242,36 @@ where [refTable].[vendor_alt_id] = ?</property>
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Load Dimensions\DFT DimProduct">
+    design-time-name="Package\Load Dimensions\DFT DimContract">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="117,42"
-          Id="Package\Load Dimensions\DFT DimProduct\Product"
-          TopLeft="178.5,20.5" />
+          Size="140,42"
+          Id="Package\Load Dimensions\DFT DimContract\DimContract"
+          TopLeft="276.5,215.5" />
         <NodeLayout
-          Size="137,42"
-          Id="Package\Load Dimensions\DFT DimProduct\DimProduct"
-          TopLeft="171.5,235.5" />
+          Size="162,42"
+          Id="Package\Load Dimensions\DFT DimContract\Contract sources"
+          TopLeft="262.5,41.5" />
         <NodeLayout
           Size="115,42"
-          Id="Package\Load Dimensions\DFT DimProduct\Lookup"
-          TopLeft="175.5,97.5" />
+          Id="Package\Load Dimensions\DFT DimContract\Lookup"
+          TopLeft="286,130" />
         <EdgeLayout
-          Id="Package\Load Dimensions\DFT DimProduct.Paths[OLE DB Source Output]"
-          TopLeft="235,62.5">
+          Id="Package\Load Dimensions\DFT DimContract.Paths[OLE DB Source Output]"
+          TopLeft="343.5,83.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,35"
+              EndConnector="0,46.5"
               Start="0,0"
-              End="0,27.5">
+              End="0,39">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.5" />
+                    End="0,39" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6281,26 +6281,26 @@ where [refTable].[vendor_alt_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Dimensions\DFT DimProduct.Paths[Lookup No Match Output]"
-          TopLeft="236.5,139.5">
+          Id="Package\Load Dimensions\DFT DimContract.Paths[Lookup No Match Output]"
+          TopLeft="345,172">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,96"
+              EndConnector="0,43.5"
               Start="0,0"
-              End="0,88.5">
+              End="0,36">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,88.5" />
+                    End="0,36" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,38.4453125,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,12.1953125,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6308,7 +6308,7 @@ where [refTable].[vendor_alt_id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimProduct\Product">
+    design-time-name="Package\Load Dimensions\DFT DimContract\DimContract">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6321,15 +6321,33 @@ where [refTable].[vendor_alt_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimProduct\DimProduct">
+    design-time-name="Package\Load Dimensions\DFT DimContract\Contract sources">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dimensions\DFT DimContract\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimContract]</Value>
+      </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q2:string">Table</Value>
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
@@ -6339,17 +6357,17 @@ where [refTable].[vendor_alt_id] = ?</property>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="128,42"
-          Id="Package\Load Dimensions\DFT DimEmployee\Employee"
-          TopLeft="214.5,11.5" />
+          Size="115,42"
+          Id="Package\Load Dimensions\DFT DimEmployee\Lookup"
+          TopLeft="215,101" />
         <NodeLayout
           Size="148,42"
           Id="Package\Load Dimensions\DFT DimEmployee\DimEmployee"
           TopLeft="203.5,188.5" />
         <NodeLayout
-          Size="115,42"
-          Id="Package\Load Dimensions\DFT DimEmployee\Lookup"
-          TopLeft="215,101" />
+          Size="128,42"
+          Id="Package\Load Dimensions\DFT DimEmployee\Employee"
+          TopLeft="214.5,11.5" />
         <EdgeLayout
           Id="Package\Load Dimensions\DFT DimEmployee.Paths[OLE DB Source Output]"
           TopLeft="275.5,53.5">
@@ -6400,7 +6418,30 @@ where [refTable].[vendor_alt_id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimEmployee\Employee">
+    design-time-name="Package\Load Dimensions\DFT DimEmployee\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimEmployee]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dimensions\DFT DimEmployee\DimEmployee">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6413,7 +6454,7 @@ where [refTable].[vendor_alt_id] = ?</property>
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimEmployee\DimEmployee">
+    design-time-name="Package\Load Dimensions\DFT DimEmployee\Employee">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6517,37 +6558,60 @@ where [refTable].[vendor_alt_id] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dimensions\DFT DimLocation\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimLocation]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
-    design-time-name="Package\Load Dimensions\DFT DimContract">
+    design-time-name="Package\Load Dimensions\DFT DimProduct">
     <LayoutInfo>
       <GraphLayout
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="162,42"
-          Id="Package\Load Dimensions\DFT DimContract\Contract sources"
-          TopLeft="262.5,41.5" />
+          Size="117,42"
+          Id="Package\Load Dimensions\DFT DimProduct\Product"
+          TopLeft="178.5,20.5" />
         <NodeLayout
-          Size="177,42"
-          Id="Package\Load Dimensions\DFT DimContract\OLE DB Destination"
-          TopLeft="251.5,218.5" />
+          Size="137,42"
+          Id="Package\Load Dimensions\DFT DimProduct\DimProduct"
+          TopLeft="165.5,172.5" />
         <NodeLayout
           Size="115,42"
-          Id="Package\Load Dimensions\DFT DimContract\Lookup"
-          TopLeft="286,130" />
+          Id="Package\Load Dimensions\DFT DimProduct\Lookup"
+          TopLeft="175.5,97.5" />
         <EdgeLayout
-          Id="Package\Load Dimensions\DFT DimContract.Paths[OLE DB Source Output]"
-          TopLeft="343.5,83.5">
+          Id="Package\Load Dimensions\DFT DimProduct.Paths[OLE DB Source Output]"
+          TopLeft="235,62.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.5"
+              EndConnector="0,35"
               Start="0,0"
-              End="0,39">
+              End="0,27.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39" />
+                    End="0,27.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -6557,26 +6621,26 @@ where [refTable].[vendor_alt_id] = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package\Load Dimensions\DFT DimContract.Paths[Lookup No Match Output]"
-          TopLeft="341.75,172">
+          Id="Package\Load Dimensions\DFT DimProduct.Paths[Lookup No Match Output]"
+          TopLeft="233.5,139.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,46.5"
+              EndConnector="0,33"
               Start="0,0"
-              End="0,39">
+              End="0,25.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,39" />
+                    End="0,25.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-55.80638671875,13.6953125,111.6127734375,11.609375"
+              BoundingBox="-55.80638671875,6.9453125,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -6584,15 +6648,7 @@ where [refTable].[vendor_alt_id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimContract\Contract sources">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimContract\OLE DB Destination">
+    design-time-name="Package\Load Dimensions\DFT DimProduct\Product">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -6604,19 +6660,79 @@ where [refTable].[vendor_alt_id] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dimensions\DFT DimProduct\DimProduct">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dimensions\DFT DimProduct\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProduct]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Dimensions\DFT DimVendor">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="115,42"
+          Id="Package\Load Dimensions\DFT DimVendor\Lookup"
+          TopLeft="296.5,104.5" />
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Load Dimensions\DFT DimVendor\OLE DB Command"
+          TopLeft="119.5,245.5" />
+        <NodeLayout
+          Size="216,42"
+          Id="Package\Load Dimensions\DFT DimVendor\DimVendor updated records"
+          TopLeft="98.5,378.5" />
+        <NodeLayout
+          Size="197,42"
+          Id="Package\Load Dimensions\DFT DimVendor\DimVendor new records"
+          TopLeft="383.5,244.5" />
+        <NodeLayout
           Size="114,42"
           Id="Package\Load Dimensions\DFT DimVendor\Vendor"
           TopLeft="297.5,18.5" />
         <NodeLayout
-          Size="115,42"
-          Id="Package\Load Dimensions\DFT DimVendor\Lookup"
-          TopLeft="296.5,104.5" />
+          Size="159,42"
+          Id="Package\Load Dimensions\DFT DimVendor\Conditional Split"
+          TopLeft="128.5,173.5" />
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Load Dimensions\DFT DimVendor\Derived Column"
+          TopLeft="123.5,311.5" />
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Load Dimensions\DFT DimVendor\Derived Column 1"
+          TopLeft="393.5,171.5" />
         <EdgeLayout
           Id="Package\Load Dimensions\DFT DimVendor.Paths[OLE DB Source Output]"
           TopLeft="354.25,60.5">
@@ -6639,78 +6755,6 @@ where [refTable].[vendor_alt_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="159,42"
-          Id="Package\Load Dimensions\DFT DimVendor\Conditional Split"
-          TopLeft="128.5,173.5" />
-        <EdgeLayout
-          Id="Package\Load Dimensions\DFT DimVendor.Paths[Lookup Match Output]"
-          TopLeft="354,146.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-146,27"
-              Start="0,0"
-              End="-146,19.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,9.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,9.5"
-                    Point2="0,13.5"
-                    Point3="-4,13.5" />
-                  <mssgle:LineSegment
-                    End="-142,13.5" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-142,13.5"
-                    Point2="-146,13.5"
-                    Point3="-146,17.5" />
-                  <mssgle:LineSegment
-                    End="-146,19.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-121.19138671875,18.5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="173,42"
-          Id="Package\Load Dimensions\DFT DimVendor\OLE DB Command"
-          TopLeft="119.5,245.5" />
-        <EdgeLayout
-          Id="Package\Load Dimensions\DFT DimVendor.Paths[CHANGED]"
-          TopLeft="207,215.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,30"
-              Start="0,0"
-              End="0,22.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,22.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-22.92873046875,6.47802734375,45.8574609375,9.5439453125"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="158,42"
-          Id="Package\Load Dimensions\DFT DimVendor\Derived Column"
-          TopLeft="123.5,311.5" />
         <EdgeLayout
           Id="Package\Load Dimensions\DFT DimVendor.Paths[OLE DB Command Output]"
           TopLeft="204.25,287.5">
@@ -6733,36 +6777,6 @@ where [refTable].[vendor_alt_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Load Dimensions\DFT DimVendor\OLE DB Destination"
-          TopLeft="110.5,379.5" />
-        <EdgeLayout
-          Id="Package\Load Dimensions\DFT DimVendor.Paths[Derived Column Output]"
-          TopLeft="200.75,353.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,26"
-              Start="0,0"
-              End="0,18.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Load Dimensions\DFT DimVendor\Derived Column 1"
-          TopLeft="393.5,171.5" />
         <EdgeLayout
           Id="Package\Load Dimensions\DFT DimVendor.Paths[Lookup No Match Output]"
           TopLeft="371.833333333333,146.5">
@@ -6799,13 +6813,45 @@ where [refTable].[vendor_alt_id] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="186,42"
-          Id="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1"
-          TopLeft="383.5,244.5" />
+        <EdgeLayout
+          Id="Package\Load Dimensions\DFT DimVendor.Paths[Lookup Match Output]"
+          TopLeft="354,146.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-146,27"
+              Start="0,0"
+              End="-146,19.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.5"
+                    Point2="0,13.5"
+                    Point3="-4,13.5" />
+                  <mssgle:LineSegment
+                    End="-142,13.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-142,13.5"
+                    Point2="-146,13.5"
+                    Point3="-146,17.5" />
+                  <mssgle:LineSegment
+                    End="-146,19.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-121.19138671875,18.5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Dimensions\DFT DimVendor.Paths[Derived Column Output1]"
-          TopLeft="476.75,213.5">
+          TopLeft="479.5,213.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -6825,9 +6871,104 @@ where [refTable].[vendor_alt_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dimensions\DFT DimVendor.Paths[Derived Column Output]"
+          TopLeft="204.5,353.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,25"
+              Start="0,0"
+              End="0,17.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Dimensions\DFT DimVendor.Paths[CHANGED]"
+          TopLeft="207,215.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-22.92873046875,6.47802734375,45.8574609375,9.5439453125"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dimensions\DFT DimVendor\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dimensions\DFT DimVendor\DimVendor updated records">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Dimensions\DFT DimVendor\DimVendor new records">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <PipelineComponentMetadata
     design-time-name="Package\Load Dimensions\DFT DimVendor\Vendor">
     <Properties>
@@ -6841,152 +6982,27 @@ where [refTable].[vendor_alt_id] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimVendor\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string"></Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimVendor\OLE DB Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimVendor\OLE DB Destination 1">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimProduct\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimProduct]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimEmployee\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimEmployee]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimLocation\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimLocation]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Dimensions\DFT DimContract\Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimContract]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Facts\DFT FactPurchaseOrder">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="167,42"
+          Id="Package\Load Facts\DFT FactPurchaseOrder\Employee Lookup"
+          TopLeft="440.5,169.5" />
+        <NodeLayout
+          Size="156,42"
+          Id="Package\Load Facts\DFT FactPurchaseOrder\Product Lookup"
+          TopLeft="441,51" />
+        <NodeLayout
+          Size="175,42"
+          Id="Package\Load Facts\DFT FactPurchaseOrder\FactPurchaseOrder"
+          TopLeft="15.5,168.5" />
+        <NodeLayout
+          Size="160,42"
+          Id="Package\Load Facts\DFT FactPurchaseOrder\Location Lookup"
+          TopLeft="236.5,170.5" />
         <NodeLayout
           Size="119,42"
           Id="Package\Load Facts\DFT FactPurchaseOrder\Sources"
@@ -7017,38 +7033,54 @@ where [refTable].[vendor_alt_id] = ?</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Load Facts\DFT FactPurchaseOrder\Product Lookup"
-          TopLeft="441,51" />
         <EdgeLayout
-          Id="Package\Load Facts\DFT FactPurchaseOrder.Paths[Lookup Match Output]"
-          TopLeft="392,71.5">
+          Id="Package\Load Facts\DFT FactPurchaseOrder.Paths[Lookup Match Output3]"
+          TopLeft="236.5,190.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="49,0"
+              EndConnector="-46,0"
               Start="0,0"
-              End="41.5,0">
+              End="-38.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="41.5,0" />
+                    End="-38.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-27.44138671875,5,96.3827734375,11.609375"
+              BoundingBox="-67.44138671875,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="167,42"
-          Id="Package\Load Facts\DFT FactPurchaseOrder\Employee Lookup"
-          TopLeft="440.5,169.5" />
+        <EdgeLayout
+          Id="Package\Load Facts\DFT FactPurchaseOrder.Paths[Lookup Match Output2]"
+          TopLeft="440.5,191">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-44,0"
+              Start="0,0"
+              End="-36.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-66.44138671875,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Facts\DFT FactPurchaseOrder.Paths[Lookup Match Output1]"
           TopLeft="521.5,93">
@@ -7073,71 +7105,27 @@ where [refTable].[vendor_alt_id] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="160,42"
-          Id="Package\Load Facts\DFT FactPurchaseOrder\Location Lookup"
-          TopLeft="236.5,125.5" />
         <EdgeLayout
-          Id="Package\Load Facts\DFT FactPurchaseOrder.Paths[Lookup Match Output2]"
-          TopLeft="440.5,190.5">
+          Id="Package\Load Facts\DFT FactPurchaseOrder.Paths[Lookup Match Output]"
+          TopLeft="392,71.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-44,-44"
+              EndConnector="49,0"
               Start="0,0"
-              End="-36.5,-44">
+              End="41.5,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-18,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-18,0"
-                    Point2="-22,0"
-                    Point3="-22,-4" />
-                  <mssgle:LineSegment
-                    End="-22,-40" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-22,-40"
-                    Point2="-22,-44"
-                    Point3="-26,-44" />
-                  <mssgle:LineSegment
-                    End="-36.5,-44" />
+                    End="41.5,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-70.19138671875,1,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="175,42"
-          Id="Package\Load Facts\DFT FactPurchaseOrder\FactPurchaseOrder"
-          TopLeft="16.5,119.5" />
-        <EdgeLayout
-          Id="Package\Load Facts\DFT FactPurchaseOrder.Paths[Lookup Match Output3]"
-          TopLeft="236.5,143.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-45,0"
-              Start="0,0"
-              End="-37.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="-37.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-66.94138671875,5,96.3827734375,11.609375"
+              BoundingBox="-27.44138671875,5,96.3827734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -7145,30 +7133,22 @@ where [refTable].[vendor_alt_id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Load Facts\DFT FactPurchaseOrder\Sources">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Facts\DFT FactPurchaseOrder\Vendor Lookup">
+    design-time-name="Package\Load Facts\DFT FactPurchaseOrder\Employee Lookup">
     <Properties>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
         <Value
-          type="q3:string">[dbo].[DimVendor]</Value>
+          type="q3:string">[dbo].[DimEmployee]</Value>
       </Property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7181,7 +7161,7 @@ where [refTable].[vendor_alt_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7191,53 +7171,7 @@ where [refTable].[vendor_alt_id] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Facts\DFT FactPurchaseOrder\Employee Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimEmployee]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Facts\DFT FactPurchaseOrder\Location Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimLocation]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7257,101 +7191,89 @@ where [refTable].[vendor_alt_id] = ?</property>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Facts\DFT FactPurchaseOrder\Location Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimLocation]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Facts\DFT FactPurchaseOrder\Sources">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Facts\DFT FactPurchaseOrder\Vendor Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimVendor]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Load Facts\DFT FactReceiptOrder">
     <LayoutInfo>
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="156,42"
+          Id="Package\Load Facts\DFT FactReceiptOrder\Product Lookup"
+          TopLeft="450.5,48.5" />
+        <NodeLayout
           Size="157,42"
           Id="Package\Load Facts\DFT FactReceiptOrder\OLE DB Source"
           TopLeft="10.5,48.5" />
         <NodeLayout
+          Size="160,42"
+          Id="Package\Load Facts\DFT FactReceiptOrder\Location Lookup"
+          TopLeft="240.5,142.5" />
+        <NodeLayout
           Size="153,42"
           Id="Package\Load Facts\DFT FactReceiptOrder\Vendor Lookup"
           TopLeft="224.5,49.5" />
-        <EdgeLayout
-          Id="Package\Load Facts\DFT FactReceiptOrder.Paths[OLE DB Source Output]"
-          TopLeft="167.5,70">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="57,0"
-              Start="0,0"
-              End="49.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="49.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="156,42"
-          Id="Package\Load Facts\DFT FactReceiptOrder\Product Lookup"
-          TopLeft="450.5,48.5" />
-        <EdgeLayout
-          Id="Package\Load Facts\DFT FactReceiptOrder.Paths[Lookup Match Output]"
-          TopLeft="377.5,70">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="73,0"
-              Start="0,0"
-              End="65.5,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="65.5,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-15.44138671875,5,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
           Size="167,42"
           Id="Package\Load Facts\DFT FactReceiptOrder\Employee Lookup"
           TopLeft="452.5,141.5" />
-        <EdgeLayout
-          Id="Package\Load Facts\DFT FactReceiptOrder.Paths[Lookup Match Output1]"
-          TopLeft="532.25,90.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,51"
-              Start="0,0"
-              End="0,43.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,43.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-48.19138671875,15.9453125,96.3827734375,11.609375"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
         <NodeLayout
-          Size="160,42"
-          Id="Package\Load Facts\DFT FactReceiptOrder\Location Lookup"
-          TopLeft="240.5,142.5" />
+          Size="177,42"
+          Id="Package\Load Facts\DFT FactReceiptOrder\OLE DB Destination"
+          TopLeft="12.5,142.5" />
         <EdgeLayout
           Id="Package\Load Facts\DFT FactReceiptOrder.Paths[Lookup Match Output2]"
           TopLeft="452.5,163">
@@ -7376,10 +7298,76 @@ where [refTable].[vendor_alt_id] = ?</property>
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="177,42"
-          Id="Package\Load Facts\DFT FactReceiptOrder\OLE DB Destination"
-          TopLeft="12.5,142.5" />
+        <EdgeLayout
+          Id="Package\Load Facts\DFT FactReceiptOrder.Paths[Lookup Match Output1]"
+          TopLeft="532.25,90.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,51"
+              Start="0,0"
+              End="0,43.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,43.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-48.19138671875,15.9453125,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Facts\DFT FactReceiptOrder.Paths[Lookup Match Output]"
+          TopLeft="377.5,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="73,0"
+              Start="0,0"
+              End="65.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="65.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-15.44138671875,5,96.3827734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Load Facts\DFT FactReceiptOrder.Paths[OLE DB Source Output]"
+          TopLeft="167.5,70">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="57,0"
+              Start="0,0"
+              End="49.5,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="49.5,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
         <EdgeLayout
           Id="Package\Load Facts\DFT FactReceiptOrder.Paths[Lookup Match Output3]"
           TopLeft="240.5,163.5">
@@ -7408,8 +7396,54 @@ where [refTable].[vendor_alt_id] = ?</property>
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
+    design-time-name="Package\Load Facts\DFT FactReceiptOrder\Product Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimProduct]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
     design-time-name="Package\Load Facts\DFT FactReceiptOrder\OLE DB Source">
     <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Load Facts\DFT FactReceiptOrder\Location Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string">[dbo].[DimLocation]</Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
       <Property>
         <Name>DataSourceViewID</Name>
       </Property>
@@ -7421,7 +7455,7 @@ where [refTable].[vendor_alt_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7431,30 +7465,7 @@ where [refTable].[vendor_alt_id] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Facts\DFT FactReceiptOrder\Product Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimProduct]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -7467,7 +7478,7 @@ where [refTable].[vendor_alt_id] = ?</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -7477,30 +7488,7 @@ where [refTable].[vendor_alt_id] = ?</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
-      </Property>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <PipelineComponentMetadata
-    design-time-name="Package\Load Facts\DFT FactReceiptOrder\Location Lookup">
-    <Properties>
-      <Property>
-        <Name>OverwriteParamsSQLProp</Name>
-        <Value
-          type="q2:boolean">false</Value>
-      </Property>
-      <Property>
-        <Name>UsedTableName</Name>
-        <Value
-          type="q3:string">[dbo].[DimLocation]</Value>
-      </Property>
-      <Property>
-        <Name>TableInfoObjectType</Name>
-        <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

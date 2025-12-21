@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36616.10 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "MarketBasket_Analysis", "MarketBasket_Analysis\MarketBasket_Analysis.dtproj", "{586FD1CA-9598-4D01-049D-814C52933D00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{586FD1CA-9598-4D01-049D-814C52933D00}.Development|Default.ActiveCfg = Development
+		{586FD1CA-9598-4D01-049D-814C52933D00}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4411C106-0F52-4BFB-92BE-CC090CC98E7F}
+	EndGlobalSection
+EndGlobal
